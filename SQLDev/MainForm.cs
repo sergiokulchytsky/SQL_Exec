@@ -20,6 +20,7 @@ namespace SQLDev
         public MainForm()
         {
             InitializeComponent();
+            richTextBox1.Select();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,10 +48,12 @@ namespace SQLDev
                 //MessageBox.Show("Successful!");
                 //richTextBox1.ResetText();
                 myConnection.Close();
+                StatusLabel.Text = "Success!";
             }
             catch (SqlException exept)
             {
-                MessageBox.Show(exept.Message);
+                StatusLabel.ForeColor = Color.Red;
+                StatusLabel.Text = exept.Message;
                 myConnection.Close();
             }
             
@@ -58,16 +61,39 @@ namespace SQLDev
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            Regex rx = new Regex("INSERT ");
-            int index = richTextBox1.SelectionStart;
+            string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|BY|UPDATE|DELETE|INSERT|INTO|CREATE|TABLE|DROP|INDEX|DATABASE|ALTER)\b";
+            MatchCollection keywordUpMatches = Regex.Matches(richTextBox1.Text, keywordsUp);
 
-            foreach (Match item in rx.Matches(richTextBox1.Text))
+            string keywordsDown = @"\b(select|from|where|between|like|order|by|update|delete|insert|into|create|table|drop|index|database|alter)\b";
+            MatchCollection keywordDownMatches = Regex.Matches(richTextBox1.Text, keywordsDown);
+
+            int originalIndex = richTextBox1.SelectionStart;
+            int originalLength = richTextBox1.SelectionLength;
+            Color originalColor = Color.Black;
+
+            richTextBox1.SelectionStart = 0;
+            richTextBox1.SelectionLength = richTextBox1.Text.Length;
+            richTextBox1.SelectionColor = originalColor;
+
+            foreach (Match m in keywordUpMatches)
             {
-                richTextBox1.Select(item.Index, item.Value.Length);
+                richTextBox1.SelectionStart = m.Index;
+                richTextBox1.SelectionLength = m.Length;
                 richTextBox1.SelectionColor = Color.Blue;
-                richTextBox1.SelectionStart = index;
-                richTextBox1.SelectionColor = Color.Black;
             }
+
+            foreach (Match m in keywordDownMatches)
+            {
+                richTextBox1.SelectionStart = m.Index;
+                richTextBox1.SelectionLength = m.Length;
+                richTextBox1.SelectionColor = Color.Blue;
+            }
+
+            richTextBox1.SelectionStart = originalIndex;
+            richTextBox1.SelectionLength = originalLength;
+            richTextBox1.SelectionColor = originalColor;
+
+            richTextBox1.Focus();
         }
     }
 }
