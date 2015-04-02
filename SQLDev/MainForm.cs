@@ -27,7 +27,7 @@ namespace SQLDev
         {
             try
             {
-                if(String.IsNullOrEmpty(richTextBox1.Text))
+                if(String.IsNullOrWhiteSpace(richTextBox1.Text))
                 {
                     StatusLabel.ForeColor = Color.Red;
                     StatusLabel.Text = "Field is empty!";
