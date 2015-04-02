@@ -27,28 +27,34 @@ namespace SQLDev
         {
             try
             {
-                myConnection.Open();
-                comm.Connection = myConnection;
-                comm.CommandText = richTextBox1.Text.ToString();
-                using (SqlDataReader reader = comm.ExecuteReader())
+                if(String.IsNullOrEmpty(richTextBox1.Text))
                 {
-                    if (reader.HasRows)
-                    {
-                        dataGridView.Visible = true;
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
-                        dataGridView.DataSource = dt;
-                    }
-                    else
-                    {
-                        dataGridView.Visible = false;
-                    }
+                    StatusLabel.ForeColor = Color.Red;
+                    StatusLabel.Text = "Field is empty!";
                 }
-                //comm.ExecuteNonQuery();
-                //MessageBox.Show("Successful!");
-                //richTextBox1.ResetText();
-                myConnection.Close();
-                StatusLabel.Text = "Success!";
+                else
+                {
+                    myConnection.Open();
+                    comm.Connection = myConnection;
+                    comm.CommandText = richTextBox1.Text.ToString();
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            dataGridView.Visible = true;
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            dataGridView.DataSource = dt;
+                        }
+                        else
+                        {
+                            dataGridView.Visible = false;
+                        }
+                    }
+                    myConnection.Close();
+                    StatusLabel.ForeColor = Color.Green;
+                    StatusLabel.Text = "Success!";
+                }
             }
             catch (SqlException exept)
             {
