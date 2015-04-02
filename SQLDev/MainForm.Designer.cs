@@ -86,6 +86,8 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "SQLDev";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
