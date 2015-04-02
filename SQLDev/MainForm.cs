@@ -47,10 +47,12 @@ namespace SQLDev
                 //MessageBox.Show("Successful!");
                 //richTextBox1.ResetText();
                 myConnection.Close();
+                StatusLabel.Text = "Success!";
             }
             catch (SqlException exept)
             {
-                MessageBox.Show(exept.Message);
+                StatusLabel.ForeColor = Color.Red;
+                StatusLabel.Text = exept.Message;
                 myConnection.Close();
             }
             
