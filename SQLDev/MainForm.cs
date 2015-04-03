@@ -67,6 +67,7 @@ namespace SQLDev
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
+            
             string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|BY|UPDATE|DELETE|INSERT|INTO|CREATE|TABLE|DROP|INDEX|DATABASE|ALTER)\b";
             MatchCollection keywordUpMatches = Regex.Matches(richTextBox1.Text, keywordsUp);
 
@@ -100,6 +101,11 @@ namespace SQLDev
             richTextBox1.SelectionColor = originalColor;
 
             richTextBox1.Focus();
+        }
+
+        private void richTextBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            StatusLabel.Text = "";
         }
     }
 }
