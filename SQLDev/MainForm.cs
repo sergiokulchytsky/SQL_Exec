@@ -67,11 +67,17 @@ namespace SQLDev
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            
-            string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|BY|UPDATE|DELETE|INSERT|INTO|CREATE|TABLE|DROP|INDEX|DATABASE|ALTER)\b";
+
+            string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|"+
+                                    "BY|UPDATE|DELETE|INSERT|INTO|CREATE|"+
+                                    "TABLE|DROP|INDEX|DATABASE|ALTER|VALUES|"+
+                                    "NOT|NULL|CONSTRAINT|IDENTITY)\b";
             MatchCollection keywordUpMatches = Regex.Matches(richTextBox1.Text, keywordsUp);
 
-            string keywordsDown = @"\b(select|from|where|between|like|order|by|update|delete|insert|into|create|table|drop|index|database|alter)\b";
+            string keywordsDown = @"\b(select|from|where|between|like|order|"+
+                                   "by|update|delete|insert|into|create|"+
+                                   "table|drop|index|database|alter|values|"+
+                                   "not|null|constraint|identity)\b";
             MatchCollection keywordDownMatches = Regex.Matches(richTextBox1.Text, keywordsDown);
 
             int originalIndex = richTextBox1.SelectionStart;
