@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Xml;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
 
 namespace Hashing
 {
@@ -18,6 +19,15 @@ namespace Hashing
             }
             this.dt = dt;
         }
+
+        public HashSum(SqlDataReader reader, String secret = "PZS")
+        {
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            dt.TableName = secret;
+            this.dt = dt;
+        }
+
         private byte[] SerializeData()
         {
             // Serialize the table
