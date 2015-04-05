@@ -153,7 +153,7 @@
             this.fileStatus.Name = "fileStatus";
             this.fileStatus.Size = new System.Drawing.Size(354, 29);
             this.fileStatus.TabIndex = 6;
-            this.fileStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.fileStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // StatusLabel
             // 
