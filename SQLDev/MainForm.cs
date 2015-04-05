@@ -19,14 +19,14 @@ namespace SQLDev
         public MainForm()
         {
             InitializeComponent();
-            richTextBox1.Select();
+            querySqlBox.Select();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Execute_Click(object sender, EventArgs e)
         {
             try
             {
-                if(String.IsNullOrWhiteSpace(richTextBox1.Text))
+                if(String.IsNullOrWhiteSpace(querySqlBox.Text))
                 {
                     StatusLabel.ForeColor = Color.Red;
                     StatusLabel.Text = "Field is empty!";
@@ -35,7 +35,7 @@ namespace SQLDev
                 {
                    
                             DB db = new DB();
-                            dataGridView.DataSource = db.Read(richTextBox1.Text);
+                            dataGridView.DataSource = db.Read(querySqlBox.Text);
                  
                     
                     StatusLabel.ForeColor = Color.Green;
@@ -55,43 +55,48 @@ namespace SQLDev
         {
 
             string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|BY|UPDATE|DELETE|INSERT|INTO|CREATE|TABLE|DROP|INDEX|DATABASE|ALTER|VALUES|NOT|NULL|CONSTRAINT|IDENTITY|USER)\b";
-            MatchCollection keywordUpMatches = Regex.Matches(richTextBox1.Text, keywordsUp);
+            MatchCollection keywordUpMatches = Regex.Matches(querySqlBox.Text, keywordsUp);
 
             string keywordsDown = @"\b(select|from|where|between|like|order|by|update|delete|insert|into|create|table|drop|index|database|alter|values|not|null|constraint|identity|user)\b";
-            MatchCollection keywordDownMatches = Regex.Matches(richTextBox1.Text, keywordsDown);
+            MatchCollection keywordDownMatches = Regex.Matches(querySqlBox.Text, keywordsDown);
 
-            int originalIndex = richTextBox1.SelectionStart;
-            int originalLength = richTextBox1.SelectionLength;
+            int originalIndex = querySqlBox.SelectionStart;
+            int originalLength = querySqlBox.SelectionLength;
             Color originalColor = Color.Black;
 
-            richTextBox1.SelectionStart = 0;
-            richTextBox1.SelectionLength = richTextBox1.Text.Length;
-            richTextBox1.SelectionColor = originalColor;
+            querySqlBox.SelectionStart = 0;
+            querySqlBox.SelectionLength = querySqlBox.Text.Length;
+            querySqlBox.SelectionColor = originalColor;
 
             foreach (Match m in keywordUpMatches)
             {
-                richTextBox1.SelectionStart = m.Index;
-                richTextBox1.SelectionLength = m.Length;
-                richTextBox1.SelectionColor = Color.Blue;
+                querySqlBox.SelectionStart = m.Index;
+                querySqlBox.SelectionLength = m.Length;
+                querySqlBox.SelectionColor = Color.Blue;
             }
 
             foreach (Match m in keywordDownMatches)
             {
-                richTextBox1.SelectionStart = m.Index;
-                richTextBox1.SelectionLength = m.Length;
-                richTextBox1.SelectionColor = Color.Blue;
+                querySqlBox.SelectionStart = m.Index;
+                querySqlBox.SelectionLength = m.Length;
+                querySqlBox.SelectionColor = Color.Blue;
             }
 
-            richTextBox1.SelectionStart = originalIndex;
-            richTextBox1.SelectionLength = originalLength;
-            richTextBox1.SelectionColor = originalColor;
+            querySqlBox.SelectionStart = originalIndex;
+            querySqlBox.SelectionLength = originalLength;
+            querySqlBox.SelectionColor = originalColor;
 
-            richTextBox1.Focus();
+            querySqlBox.Focus();
         }
 
         private void richTextBox1_MouseClick(object sender, MouseEventArgs e)
         {
             StatusLabel.Text = "";
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

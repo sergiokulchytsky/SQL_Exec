@@ -29,38 +29,38 @@ namespace Task_Generation
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
             string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|BY|UPDATE|DELETE|INSERT|INTO|CREATE|TABLE|DROP|INDEX|DATABASE|ALTER|VALUES|NOT|NULL|CONSTRAINT|IDENTITY|USER)\b";
-            MatchCollection keywordUpMatches = Regex.Matches(richTextBox2.Text, keywordsUp);
+            MatchCollection keywordUpMatches = Regex.Matches(corrSqlBox.Text, keywordsUp);
 
             string keywordsDown = @"\b(select|from|where|between|like|order|by|update|delete|insert|into|create|table|drop|index|database|alter|values|not|null|constraint|identity|user)\b";
-            MatchCollection keywordDownMatches = Regex.Matches(richTextBox2.Text, keywordsDown);
+            MatchCollection keywordDownMatches = Regex.Matches(corrSqlBox.Text, keywordsDown);
 
-            int originalIndex = richTextBox2.SelectionStart;
-            int originalLength = richTextBox2.SelectionLength;
+            int originalIndex = corrSqlBox.SelectionStart;
+            int originalLength = corrSqlBox.SelectionLength;
             Color originalColor = Color.Black;
 
-            richTextBox2.SelectionStart = 0;
-            richTextBox2.SelectionLength = richTextBox1.Text.Length;
-            richTextBox2.SelectionColor = originalColor;
+            corrSqlBox.SelectionStart = 0;
+            corrSqlBox.SelectionLength = descriptionBox.Text.Length;
+            corrSqlBox.SelectionColor = originalColor;
 
             foreach (Match m in keywordUpMatches)
             {
-                richTextBox2.SelectionStart = m.Index;
-                richTextBox2.SelectionLength = m.Length;
-                richTextBox2.SelectionColor = Color.Blue;
+                corrSqlBox.SelectionStart = m.Index;
+                corrSqlBox.SelectionLength = m.Length;
+                corrSqlBox.SelectionColor = Color.Blue;
             }
 
             foreach (Match m in keywordDownMatches)
             {
-                richTextBox2.SelectionStart = m.Index;
-                richTextBox2.SelectionLength = m.Length;
-                richTextBox2.SelectionColor = Color.Blue;
+                corrSqlBox.SelectionStart = m.Index;
+                corrSqlBox.SelectionLength = m.Length;
+                corrSqlBox.SelectionColor = Color.Blue;
             }
 
-            richTextBox2.SelectionStart = originalIndex;
-            richTextBox2.SelectionLength = originalLength;
-            richTextBox2.SelectionColor = originalColor;
+            corrSqlBox.SelectionStart = originalIndex;
+            corrSqlBox.SelectionLength = originalLength;
+            corrSqlBox.SelectionColor = originalColor;
 
-            richTextBox2.Focus();
+            corrSqlBox.Focus();
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -71,25 +71,25 @@ namespace Task_Generation
                 label2.Location = new Point(12, lab2Y);
 
                 int but1Y = this.Height / 2 - 28;
-                button1.Location = new Point(12, but1Y);
+                Attach.Location = new Point(12, but1Y);
 
                 int rch2Y = this.Height / 2 + 37;
-                richTextBox2.Location = new Point(12, rch2Y);
+                corrSqlBox.Location = new Point(12, rch2Y);
 
-                richTextBox1.Size = new Size(1150, 300);
-                richTextBox2.Size = new Size(1150, 285);
+                descriptionBox.Size = new Size(1150, 300);
+                corrSqlBox.Size = new Size(1150, 285);
             }
             else
             {
-                button1.Location = new Point(12, 184);
+                Attach.Location = new Point(12, 184);
                 label2.Location = new Point(12, 231);
-                richTextBox2.Location = new Point(12, 249);
-                richTextBox1.Size = new Size(490, 125);
-                richTextBox2.Size = new Size(490, 125);
+                corrSqlBox.Location = new Point(12, 249);
+                descriptionBox.Size = new Size(490, 125);
+                corrSqlBox.Size = new Size(490, 125);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Attach_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Image files | *.jpg"; 
@@ -104,15 +104,15 @@ namespace Task_Generation
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Create_Click(object sender, EventArgs e)
         {
 
             List<TaskControl> task = new List<TaskControl>();
             TaskControl t = new TaskControl();
-            t.description = richTextBox1.Text;
+            t.description = descriptionBox.Text;
             t.imgPath = label3.Text;
             DB db = new DB();
-            HashSum hash = new HashSum(db.Read(richTextBox2.Text));
+            HashSum hash = new HashSum(db.Read(corrSqlBox.Text));
 
             t.correctSQL = hash.GetHashString();
 

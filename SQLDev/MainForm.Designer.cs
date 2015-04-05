@@ -28,49 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Execute = new System.Windows.Forms.Button();
+            this.querySqlBox = new System.Windows.Forms.RichTextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.StatusLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // Execute
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(470, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Execute";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Execute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Execute.Location = new System.Drawing.Point(531, 27);
+            this.Execute.Name = "Execute";
+            this.Execute.Size = new System.Drawing.Size(211, 27);
+            this.Execute.TabIndex = 1;
+            this.Execute.Text = "Execute";
+            this.Execute.UseVisualStyleBackColor = true;
+            this.Execute.Click += new System.EventHandler(this.Execute_Click);
             // 
-            // richTextBox1
+            // querySqlBox
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(452, 117);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseClick);
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.querySqlBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.querySqlBox.Location = new System.Drawing.Point(12, 27);
+            this.querySqlBox.Name = "querySqlBox";
+            this.querySqlBox.Size = new System.Drawing.Size(513, 125);
+            this.querySqlBox.TabIndex = 3;
+            this.querySqlBox.Text = "";
+            this.querySqlBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseClick);
+            this.querySqlBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(12, 135);
+            this.dataGridView.Location = new System.Drawing.Point(12, 184);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(660, 236);
+            this.dataGridView.Size = new System.Drawing.Size(730, 221);
             this.dataGridView.TabIndex = 4;
             // 
             // StatusLabel
@@ -79,24 +76,46 @@
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.StatusLabel.Location = new System.Drawing.Point(472, 48);
-            this.StatusLabel.MaximumSize = new System.Drawing.Size(200, 100);
+            this.StatusLabel.Location = new System.Drawing.Point(531, 68);
+            this.StatusLabel.MaximumSize = new System.Drawing.Size(233, 115);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 15);
             this.StatusLabel.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 15);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Your SQL query:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Result:";
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 386);
+            this.ClientSize = new System.Drawing.Size(754, 417);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
-            this.MinimumSize = new System.Drawing.Size(500, 400);
+            this.Controls.Add(this.querySqlBox);
+            this.Controls.Add(this.Execute);
+            this.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MinimumSize = new System.Drawing.Size(581, 456);
             this.Name = "MainForm";
             this.Text = "SQLDev";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -105,10 +124,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button Execute;
+        private System.Windows.Forms.RichTextBox querySqlBox;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
