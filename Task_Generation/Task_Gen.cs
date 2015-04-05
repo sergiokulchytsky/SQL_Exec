@@ -99,7 +99,7 @@ namespace Task_Generation
                 String path = dialog.FileName;
                 using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()))
                 {
-                    label3.Text = path;
+                    fileStatus.Text = path;
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace Task_Generation
             List<TaskControl> task = new List<TaskControl>();
             TaskControl t = new TaskControl();
             t.description = descriptionBox.Text;
-            t.imgPath = label3.Text;
+            t.imgPath = fileStatus.Text;
             DB db = new DB();
             try
             {

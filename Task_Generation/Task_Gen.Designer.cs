@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.corrSqlBox = new System.Windows.Forms.RichTextBox();
             this.Create = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.fileStatus = new System.Windows.Forms.Label();
             this.StatusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -101,19 +101,19 @@
             this.Create.UseVisualStyleBackColor = true;
             this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
-            // label3
+            // fileStatus
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(148, 191);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 15);
-            this.label3.TabIndex = 6;
+            this.fileStatus.AutoSize = true;
+            this.fileStatus.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileStatus.Location = new System.Drawing.Point(148, 191);
+            this.fileStatus.Name = "fileStatus";
+            this.fileStatus.Size = new System.Drawing.Size(0, 15);
+            this.fileStatus.TabIndex = 6;
             // 
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Location = new System.Drawing.Point(527, 32);
+            this.StatusLabel.Location = new System.Drawing.Point(509, 32);
             this.StatusLabel.MaximumSize = new System.Drawing.Size(150, 300);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 13);
@@ -126,7 +126,7 @@
             this.ClientSize = new System.Drawing.Size(684, 386);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.Attach);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.fileStatus);
             this.Controls.Add(this.Create);
             this.Controls.Add(this.corrSqlBox);
             this.Controls.Add(this.label2);
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox corrSqlBox;
         private System.Windows.Forms.Button Create;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label fileStatus;
         private System.Windows.Forms.Label StatusLabel;
     }
 }
