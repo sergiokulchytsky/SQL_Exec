@@ -73,14 +73,26 @@ namespace Task_Generation
                 int but1Y = this.Height / 2 - 28;
                 Attach.Location = new Point(12, but1Y);
 
+                int fileY = this.Height / 2 - 28;
+                fileStatus.Location = new Point(148, fileY);
+
+                int erdY = this.Height / 2 - 28;
+                int erdX = this.Width - 200;
+                ErdStatusLabel.Location = new Point(erdX, erdY);
+
+                int sqlY = this.Height / 2 + 37;
+                int sqlX = this.Width - 200;
+                SqlStatusLabel.Location = new Point(sqlX, sqlY);
+
                 int rch2Y = this.Height / 2 + 37;
                 corrSqlBox.Location = new Point(12, rch2Y);
 
-                descriptionBox.Size = new Size(1150, 300);
-                corrSqlBox.Size = new Size(1150, 285);
+                descriptionBox.Size = new Size(1160, 300);
+                corrSqlBox.Size = new Size(1160, 285);
             }
             else
             {
+                fileStatus.Location = new Point(148, 184);
                 Attach.Location = new Point(12, 184);
                 label2.Location = new Point(12, 231);
                 corrSqlBox.Location = new Point(12, 249);

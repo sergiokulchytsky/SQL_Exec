@@ -117,37 +117,41 @@
             // 
             // DescStatusLabel
             // 
+            this.DescStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DescStatusLabel.AutoSize = true;
-            this.DescStatusLabel.Location = new System.Drawing.Point(527, 32);
+            this.DescStatusLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DescStatusLabel.Location = new System.Drawing.Point(509, 32);
             this.DescStatusLabel.MaximumSize = new System.Drawing.Size(150, 120);
             this.DescStatusLabel.Name = "DescStatusLabel";
-            this.DescStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.DescStatusLabel.Size = new System.Drawing.Size(0, 15);
             this.DescStatusLabel.TabIndex = 7;
             // 
             // ErdStatusLabel
             // 
             this.ErdStatusLabel.AutoSize = true;
-            this.ErdStatusLabel.Location = new System.Drawing.Point(527, 164);
+            this.ErdStatusLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ErdStatusLabel.Location = new System.Drawing.Point(509, 193);
             this.ErdStatusLabel.MaximumSize = new System.Drawing.Size(150, 90);
             this.ErdStatusLabel.Name = "ErdStatusLabel";
-            this.ErdStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.ErdStatusLabel.Size = new System.Drawing.Size(0, 15);
             this.ErdStatusLabel.TabIndex = 8;
             // 
             // SqlStatusLabel
             // 
             this.SqlStatusLabel.AutoSize = true;
-            this.SqlStatusLabel.Location = new System.Drawing.Point(527, 254);
+            this.SqlStatusLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SqlStatusLabel.Location = new System.Drawing.Point(509, 249);
             this.SqlStatusLabel.MaximumSize = new System.Drawing.Size(150, 90);
             this.SqlStatusLabel.Name = "SqlStatusLabel";
-            this.SqlStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.SqlStatusLabel.Size = new System.Drawing.Size(0, 15);
             this.SqlStatusLabel.TabIndex = 9;
             // 
             // fileStatus
             // 
             this.fileStatus.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileStatus.Location = new System.Drawing.Point(148, 164);
+            this.fileStatus.Location = new System.Drawing.Point(148, 184);
             this.fileStatus.Name = "fileStatus";
-            this.fileStatus.Size = new System.Drawing.Size(354, 82);
+            this.fileStatus.Size = new System.Drawing.Size(354, 29);
             this.fileStatus.TabIndex = 6;
             this.fileStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

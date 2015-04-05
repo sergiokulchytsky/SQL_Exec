@@ -115,6 +115,7 @@
             // 
             // ResultLabel
             // 
+            this.ResultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ResultLabel.Location = new System.Drawing.Point(551, 152);
             this.ResultLabel.Name = "ResultLabel";
             this.ResultLabel.Size = new System.Drawing.Size(180, 29);

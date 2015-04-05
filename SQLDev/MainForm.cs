@@ -139,6 +139,10 @@ namespace SQLDev
                 int lab2Y = this.Height / 2 - 50;
                 label2.Location = new Point(12, lab2Y);
 
+                int resY = this.Height / 2 - 66;
+                int resX = this.Width - 230;
+                ResultLabel.Location = new Point(resX, resY);
+
                 int grY = this.Height / 2 - 32;
                 dataGridView.Location = new Point(12, grY);
 
@@ -147,6 +151,7 @@ namespace SQLDev
             }
             else
             {
+                ResultLabel.Location = new Point(551, 152);
                 label2.Location = new Point(12, 166);
                 dataGridView.Location = new Point(12, 184);
                 dataGridView.Size = new Size(730, 221);
