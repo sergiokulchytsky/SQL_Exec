@@ -11,6 +11,9 @@ using System.Text.RegularExpressions;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using Newtonsoft.Json;
+using Hashing;
+using DataLib;
 
 
 namespace Task_Generation
@@ -62,13 +65,13 @@ namespace Task_Generation
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            int kH = this.Height - 425;
+            /*int kH = this.Height - 425;
             int lab2Y = this.Height / 2 + 19;
             int but1Y = this.Height / 2 - 28;
             int rch2Y = this.Height / 2 + 37;
             label2.Location = new Point(12,lab2Y);
             button1.Location = new Point(12, but1Y);
-            richTextBox2.Location = new Point(12, rch2Y);
+            richTextBox2.Location = new Point(12, rch2Y);*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,10 +81,10 @@ namespace Task_Generation
             dialog.Multiselect = false;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                String path = dialog.FileName; // get name of file
+                String path = dialog.FileName;
                 using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()))
                 {
-                    label3.Text = "File uploaded: " + path;
+                    label3.Text = path;
                 }
             }
         }
@@ -89,6 +92,20 @@ namespace Task_Generation
         private void button2_Click(object sender, EventArgs e)
         {
 
+            List<TaskControl> task = new List<TaskControl>();
+            TaskControl t = new TaskControl();
+            t.description = richTextBox1.Text;
+            t.imgPath = label3.Text;
+            DB db = new DB();
+            HashSum hash = new HashSum(db.Read(richTextBox2.Text));
+
+            t.correctSQL = hash.GetHashString();
+
+            task.Add(t);
+            string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
+            System.IO.File.WriteAllText(@"D:\task.json", jstr);
         }
     }
+
+    
 }

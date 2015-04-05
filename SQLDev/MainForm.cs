@@ -8,14 +8,13 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Configuration;
+using DataLib;
 
 namespace SQLDev
 {
     public partial class MainForm : Form
     {
 
-        SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ServerConnection"].ConnectionString);
-        SqlCommand comm = new SqlCommand();
 
         public MainForm()
         {
@@ -34,24 +33,11 @@ namespace SQLDev
                 }
                 else
                 {
-                    myConnection.Open();
-                    comm.Connection = myConnection;
-                    comm.CommandText = richTextBox1.Text.ToString();
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            dataGridView.Visible = true;
-                            DataTable dt = new DataTable();
-                            dt.Load(reader);
-                            dataGridView.DataSource = dt;
-                        }
-                        else
-                        {
-                            dataGridView.Visible = false;
-                        }
-                    }
-                    myConnection.Close();
+                   
+                            DB db = new DB();
+                            dataGridView.DataSource = db.Read(richTextBox1.Text);
+                 
+                    
                     StatusLabel.ForeColor = Color.Green;
                     StatusLabel.Text = "Success!";
                 }
@@ -60,7 +46,7 @@ namespace SQLDev
             {
                 StatusLabel.ForeColor = Color.Red;
                 StatusLabel.Text = exept.Message;
-                myConnection.Close();
+              
             }
             
         }

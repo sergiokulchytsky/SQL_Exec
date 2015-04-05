@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "CheckSum\Hashing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_Generation", "Task_Generation\Task_Generation.csproj", "{B5483247-2DB5-4FA2-942E-8DEE1D5432A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{5E735BBD-518D-4209-A014-0F3AA14B9E3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B5483247-2DB5-4FA2-942E-8DEE1D5432A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5483247-2DB5-4FA2-942E-8DEE1D5432A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5483247-2DB5-4FA2-942E-8DEE1D5432A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E735BBD-518D-4209-A014-0F3AA14B9E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E735BBD-518D-4209-A014-0F3AA14B9E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E735BBD-518D-4209-A014-0F3AA14B9E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E735BBD-518D-4209-A014-0F3AA14B9E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
