@@ -98,5 +98,27 @@ namespace SQLDev
         {
 
         }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                int lab2Y = this.Height / 2 - 50;
+                label2.Location = new Point(12, lab2Y);
+
+                int grY = this.Height / 2 - 32;
+                dataGridView.Location = new Point(12, grY);
+
+                dataGridView.Size = new Size(1340, 350);
+                querySqlBox.Size = new Size(1120, 285);
+            }
+            else
+            {
+                label2.Location = new Point(12, 166);
+                dataGridView.Location = new Point(12, 184);
+                dataGridView.Size = new Size(730, 221);
+                querySqlBox.Size = new Size(513, 125);
+            }
+        }
     }
 }
