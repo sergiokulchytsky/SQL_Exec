@@ -39,7 +39,7 @@
             // 
             this.Static_label1.AutoSize = true;
             this.Static_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.Static_label1.Location = new System.Drawing.Point(48, 27);
+            this.Static_label1.Location = new System.Drawing.Point(146, 17);
             this.Static_label1.Name = "Static_label1";
             this.Static_label1.Size = new System.Drawing.Size(213, 31);
             this.Static_label1.TabIndex = 0;
@@ -49,8 +49,8 @@
             // 
             this.DescLabel.AutoSize = true;
             this.DescLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.DescLabel.Location = new System.Drawing.Point(23, 73);
-            this.DescLabel.MaximumSize = new System.Drawing.Size(260, 0);
+            this.DescLabel.Location = new System.Drawing.Point(23, 51);
+            this.DescLabel.MaximumSize = new System.Drawing.Size(500, 0);
             this.DescLabel.Name = "DescLabel";
             this.DescLabel.Size = new System.Drawing.Size(0, 24);
             this.DescLabel.TabIndex = 1;
@@ -60,7 +60,7 @@
             this.Static_label2.AutoSize = true;
             this.Static_label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
             this.Static_label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Static_label2.Location = new System.Drawing.Point(613, 27);
+            this.Static_label2.Location = new System.Drawing.Point(845, 17);
             this.Static_label2.Name = "Static_label2";
             this.Static_label2.Size = new System.Drawing.Size(72, 31);
             this.Static_label2.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // ERDpictureBox
             // 
-            this.ERDpictureBox.Location = new System.Drawing.Point(310, 61);
+            this.ERDpictureBox.Location = new System.Drawing.Point(542, 51);
             this.ERDpictureBox.Name = "ERDpictureBox";
             this.ERDpictureBox.Size = new System.Drawing.Size(659, 468);
             this.ERDpictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -79,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 555);
+            this.ClientSize = new System.Drawing.Size(1213, 555);
             this.Controls.Add(this.ERDpictureBox);
             this.Controls.Add(this.Static_label2);
             this.Controls.Add(this.DescLabel);

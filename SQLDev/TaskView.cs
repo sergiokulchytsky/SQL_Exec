@@ -22,15 +22,22 @@ namespace SQLDev
         public TaskView()
         {
             InitializeComponent();
-            using (StreamReader sr = new StreamReader(@"D:\task.json"))
+            try
             {
-                String line = sr.ReadToEnd();
-                var listTC = JsonConvert.DeserializeObject<List<TaskControl>>(line);
-                var currTask = listTC[0];
-                DescLabel.Text = currTask.description;
-                ERDpictureBox.ImageLocation = currTask.imgPath;
+                using (StreamReader sr = new StreamReader(@"D:\task.json"))
+                {
+                    String line = sr.ReadToEnd();
+                    var listTC = JsonConvert.DeserializeObject<List<TaskControl>>(line);
+                    var currTask = listTC[0];
+                    DescLabel.Text = currTask.description;
+                    ERDpictureBox.ImageLocation = currTask.imgPath;
 
+                }
             }
+            catch (Exception exept)
+            {
+                MessageBox.Show(exept.Message);
+            };
         }
     }
 }
