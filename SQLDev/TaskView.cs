@@ -24,7 +24,7 @@ namespace SQLDev
             InitializeComponent();
             try
             {
-                using (StreamReader sr = new StreamReader(@"D:\task.json"))
+                using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["DefaultTask"].ConnectionString))
                 {
                     String line = sr.ReadToEnd();
                     var listTC = JsonConvert.DeserializeObject<List<TaskControl>>(line);
