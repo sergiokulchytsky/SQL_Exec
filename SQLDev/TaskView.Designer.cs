@@ -38,39 +38,39 @@
             // Static_label1
             // 
             this.Static_label1.AutoSize = true;
-            this.Static_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.Static_label1.Location = new System.Drawing.Point(146, 17);
+            this.Static_label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Static_label1.Location = new System.Drawing.Point(693, 9);
             this.Static_label1.Name = "Static_label1";
-            this.Static_label1.Size = new System.Drawing.Size(213, 31);
+            this.Static_label1.Size = new System.Drawing.Size(180, 22);
             this.Static_label1.TabIndex = 0;
-            this.Static_label1.Text = "Task description";
+            this.Static_label1.Text = "Task description:";
             // 
             // DescLabel
             // 
             this.DescLabel.AutoSize = true;
-            this.DescLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.DescLabel.Location = new System.Drawing.Point(23, 51);
+            this.DescLabel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DescLabel.Location = new System.Drawing.Point(693, 46);
             this.DescLabel.MaximumSize = new System.Drawing.Size(500, 0);
             this.DescLabel.Name = "DescLabel";
-            this.DescLabel.Size = new System.Drawing.Size(0, 24);
+            this.DescLabel.Size = new System.Drawing.Size(0, 22);
             this.DescLabel.TabIndex = 1;
             // 
             // Static_label2
             // 
             this.Static_label2.AutoSize = true;
-            this.Static_label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.Static_label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Static_label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Static_label2.Location = new System.Drawing.Point(845, 17);
+            this.Static_label2.Location = new System.Drawing.Point(8, 9);
             this.Static_label2.Name = "Static_label2";
-            this.Static_label2.Size = new System.Drawing.Size(72, 31);
+            this.Static_label2.Size = new System.Drawing.Size(50, 22);
             this.Static_label2.TabIndex = 2;
-            this.Static_label2.Text = "ERD";
+            this.Static_label2.Text = "ERD:";
             // 
             // ERDpictureBox
             // 
-            this.ERDpictureBox.Location = new System.Drawing.Point(542, 51);
+            this.ERDpictureBox.Location = new System.Drawing.Point(12, 34);
             this.ERDpictureBox.Name = "ERDpictureBox";
-            this.ERDpictureBox.Size = new System.Drawing.Size(659, 468);
+            this.ERDpictureBox.Size = new System.Drawing.Size(659, 416);
             this.ERDpictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ERDpictureBox.TabIndex = 3;
             this.ERDpictureBox.TabStop = false;
@@ -79,13 +79,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 555);
+            this.ClientSize = new System.Drawing.Size(1213, 462);
             this.Controls.Add(this.ERDpictureBox);
             this.Controls.Add(this.Static_label2);
             this.Controls.Add(this.DescLabel);
             this.Controls.Add(this.Static_label1);
             this.Name = "TaskView";
             this.Text = "TaskView";
+            this.Load += new System.EventHandler(this.TaskView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ERDpictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

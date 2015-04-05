@@ -30,7 +30,8 @@ namespace SQLDev
                     var listTC = JsonConvert.DeserializeObject<List<TaskControl>>(line);
                     var currTask = listTC[0];
                     DescLabel.Text = currTask.description;
-                    ERDpictureBox.ImageLocation = currTask.imgPath;
+                    ERDpictureBox.Image = new Bitmap(currTask.imgPath);
+                    ERDpictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
 
                 }
@@ -39,6 +40,11 @@ namespace SQLDev
             {
                 MessageBox.Show(exept.Message);
             };
+        }
+
+        private void TaskView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
