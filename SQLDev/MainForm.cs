@@ -120,5 +120,11 @@ namespace SQLDev
                 querySqlBox.Size = new Size(513, 125);
             }
         }
+
+        private void TaskButton_Click(object sender, EventArgs e)
+        {
+            TaskView TaskForm = new TaskView();
+            TaskForm.Show();
+        }
     }
 }

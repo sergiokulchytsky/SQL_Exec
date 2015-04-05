@@ -34,13 +34,14 @@
             this.StatusLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.TaskButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Execute
             // 
             this.Execute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Execute.Location = new System.Drawing.Point(531, 27);
+            this.Execute.Location = new System.Drawing.Point(531, 60);
             this.Execute.Name = "Execute";
             this.Execute.Size = new System.Drawing.Size(211, 27);
             this.Execute.TabIndex = 1;
@@ -76,8 +77,8 @@
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.StatusLabel.Location = new System.Drawing.Point(531, 68);
-            this.StatusLabel.MaximumSize = new System.Drawing.Size(233, 115);
+            this.StatusLabel.Location = new System.Drawing.Point(531, 92);
+            this.StatusLabel.MaximumSize = new System.Drawing.Size(225, 90);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 15);
             this.StatusLabel.TabIndex = 5;
@@ -100,11 +101,23 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Result:";
             // 
+            // TaskButton
+            // 
+            this.TaskButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TaskButton.Location = new System.Drawing.Point(531, 27);
+            this.TaskButton.Name = "TaskButton";
+            this.TaskButton.Size = new System.Drawing.Size(211, 27);
+            this.TaskButton.TabIndex = 8;
+            this.TaskButton.Text = "View Task";
+            this.TaskButton.UseVisualStyleBackColor = true;
+            this.TaskButton.Click += new System.EventHandler(this.TaskButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 417);
+            this.ClientSize = new System.Drawing.Size(754, 418);
+            this.Controls.Add(this.TaskButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StatusLabel);
@@ -132,6 +145,7 @@
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button TaskButton;
     }
 }
 
