@@ -19,9 +19,9 @@ using DataLib;
 namespace Task_Generation
 {
 
-    public partial class Form1 : Form
+    public partial class Task_Gen : Form
     {
-        public Form1()
+        public Task_Gen()
         {
             InitializeComponent();
         }
@@ -65,13 +65,28 @@ namespace Task_Generation
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            /*int kH = this.Height - 425;
-            int lab2Y = this.Height / 2 + 19;
-            int but1Y = this.Height / 2 - 28;
-            int rch2Y = this.Height / 2 + 37;
-            label2.Location = new Point(12,lab2Y);
-            button1.Location = new Point(12, but1Y);
-            richTextBox2.Location = new Point(12, rch2Y);*/
+            if (this.WindowState == FormWindowState.Maximized) 
+            {
+                int lab2Y = this.Height / 2 + 19;
+                label2.Location = new Point(12, lab2Y);
+
+                int but1Y = this.Height / 2 - 28;
+                button1.Location = new Point(12, but1Y);
+
+                int rch2Y = this.Height / 2 + 37;
+                richTextBox2.Location = new Point(12, rch2Y);
+
+                richTextBox1.Size = new Size(1150, 300);
+                richTextBox2.Size = new Size(1150, 285);
+            }
+            else
+            {
+                button1.Location = new Point(12, 184);
+                label2.Location = new Point(12, 231);
+                richTextBox2.Location = new Point(12, 249);
+                richTextBox1.Size = new Size(490, 125);
+                richTextBox2.Size = new Size(490, 125);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -104,6 +119,11 @@ namespace Task_Generation
             task.Add(t);
             string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
             System.IO.File.WriteAllText(@"D:\task.json", jstr);
+        }
+
+        private void Task_Gen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
