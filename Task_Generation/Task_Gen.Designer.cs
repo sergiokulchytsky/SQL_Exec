@@ -34,6 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.corrSqlBox = new System.Windows.Forms.RichTextBox();
             this.Create = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DescStatusLabel = new System.Windows.Forms.Label();
+            this.ErdStatusLabel = new System.Windows.Forms.Label();
+            this.SqlStatusLabel = new System.Windows.Forms.Label();
             this.fileStatus = new System.Windows.Forms.Label();
             this.StatusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -101,14 +105,51 @@
             this.Create.UseVisualStyleBackColor = true;
             this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(158, 168);
+            this.label3.MaximumSize = new System.Drawing.Size(350, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(293, 61);
+            this.label3.TabIndex = 6;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DescStatusLabel
+            // 
+            this.DescStatusLabel.AutoSize = true;
+            this.DescStatusLabel.Location = new System.Drawing.Point(527, 32);
+            this.DescStatusLabel.MaximumSize = new System.Drawing.Size(150, 120);
+            this.DescStatusLabel.Name = "DescStatusLabel";
+            this.DescStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.DescStatusLabel.TabIndex = 7;
+            // 
+            // ErdStatusLabel
+            // 
+            this.ErdStatusLabel.AutoSize = true;
+            this.ErdStatusLabel.Location = new System.Drawing.Point(527, 164);
+            this.ErdStatusLabel.MaximumSize = new System.Drawing.Size(150, 90);
+            this.ErdStatusLabel.Name = "ErdStatusLabel";
+            this.ErdStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.ErdStatusLabel.TabIndex = 8;
+            // 
+            // SqlStatusLabel
+            // 
+            this.SqlStatusLabel.AutoSize = true;
+            this.SqlStatusLabel.Location = new System.Drawing.Point(527, 254);
+            this.SqlStatusLabel.MaximumSize = new System.Drawing.Size(150, 90);
+            this.SqlStatusLabel.Name = "SqlStatusLabel";
+            this.SqlStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.SqlStatusLabel.TabIndex = 9;
+            // 
             // fileStatus
             // 
-            this.fileStatus.AutoSize = true;
             this.fileStatus.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileStatus.Location = new System.Drawing.Point(148, 191);
+            this.fileStatus.Location = new System.Drawing.Point(148, 164);
             this.fileStatus.Name = "fileStatus";
-            this.fileStatus.Size = new System.Drawing.Size(0, 15);
+            this.fileStatus.Size = new System.Drawing.Size(354, 82);
             this.fileStatus.TabIndex = 6;
+            this.fileStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StatusLabel
             // 
@@ -124,7 +165,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 386);
-            this.Controls.Add(this.StatusLabel);
+            this.Controls.Add(this.SqlStatusLabel);
+            this.Controls.Add(this.ErdStatusLabel);
+            this.Controls.Add(this.DescStatusLabel);
             this.Controls.Add(this.Attach);
             this.Controls.Add(this.fileStatus);
             this.Controls.Add(this.Create);
@@ -152,6 +195,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox corrSqlBox;
         private System.Windows.Forms.Button Create;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label DescStatusLabel;
+        private System.Windows.Forms.Label ErdStatusLabel;
+        private System.Windows.Forms.Label SqlStatusLabel;
         private System.Windows.Forms.Label fileStatus;
         private System.Windows.Forms.Label StatusLabel;
     }

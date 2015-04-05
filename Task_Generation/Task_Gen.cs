@@ -65,7 +65,7 @@ namespace Task_Generation
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized) 
+            if (this.WindowState == FormWindowState.Maximized)
             {
                 int lab2Y = this.Height / 2 + 19;
                 label2.Location = new Point(12, lab2Y);
@@ -92,7 +92,7 @@ namespace Task_Generation
         private void Attach_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image files | *.jpg"; 
+            dialog.Filter = "Image files | *.jpg";
             dialog.Multiselect = false;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -106,7 +106,9 @@ namespace Task_Generation
 
         private void Create_Click(object sender, EventArgs e)
         {
-
+            DescStatusLabel.Text = "";
+            ErdStatusLabel.Text = "";
+            SqlStatusLabel.Text = "";
             List<TaskControl> task = new List<TaskControl>();
             TaskControl t = new TaskControl();
             t.description = descriptionBox.Text;
@@ -114,18 +116,42 @@ namespace Task_Generation
             DB db = new DB();
             try
             {
-                HashSum hash = new HashSum(db.Read(corrSqlBox.Text));
-                t.correctSQL = hash.GetHashString();
-                task.Add(t);
-                string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
-                System.IO.File.WriteAllText(@"D:\task.json", jstr);
-                StatusLabel.ForeColor = Color.Green;
-                StatusLabel.Text = "Success!";
+                if (String.IsNullOrWhiteSpace(descriptionBox.Text))
+                {
+                    DescStatusLabel.ForeColor = Color.Red;
+                    DescStatusLabel.Text = "Description field is empty!";
+                }
+                else
+                {
+                    if (String.IsNullOrWhiteSpace(label3.Text))
+                    {
+                        ErdStatusLabel.ForeColor = Color.Red;
+                        ErdStatusLabel.Text = "ERD must be added!";
+                    }
+                    else
+                    {
+                        if (String.IsNullOrWhiteSpace(corrSqlBox.Text))
+                        {
+                            SqlStatusLabel.ForeColor = Color.Red;
+                            SqlStatusLabel.Text = "SQL request field is empty!";
+                        }
+                        else
+                        {
+                            HashSum hash = new HashSum(db.Read(corrSqlBox.Text));
+                            t.correctSQL = hash.GetHashString();
+                            task.Add(t);
+                            string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
+                            System.IO.File.WriteAllText(@"D:\task.json", jstr);
+                            SqlStatusLabel.ForeColor = Color.Green;
+                            SqlStatusLabel.Text = "Success!";
+                        }
+                    }
+                }
             }
             catch (SqlException exept)
             {
-                StatusLabel.ForeColor = Color.Red;
-                StatusLabel.Text = exept.Message;
+                SqlStatusLabel.ForeColor = Color.Red;
+                SqlStatusLabel.Text = exept.Message;
             };
         }
 
@@ -135,5 +161,5 @@ namespace Task_Generation
         }
     }
 
-    
+
 }
