@@ -112,13 +112,21 @@ namespace Task_Generation
             t.description = descriptionBox.Text;
             t.imgPath = label3.Text;
             DB db = new DB();
-            HashSum hash = new HashSum(db.Read(corrSqlBox.Text));
-
-            t.correctSQL = hash.GetHashString();
-
-            task.Add(t);
-            string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
-            System.IO.File.WriteAllText(@"D:\task.json", jstr);
+            try
+            {
+                HashSum hash = new HashSum(db.Read(corrSqlBox.Text));
+                t.correctSQL = hash.GetHashString();
+                task.Add(t);
+                string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
+                System.IO.File.WriteAllText(@"D:\task.json", jstr);
+                StatusLabel.ForeColor = Color.Green;
+                StatusLabel.Text = "Success!";
+            }
+            catch (SqlException exept)
+            {
+                StatusLabel.ForeColor = Color.Red;
+                StatusLabel.Text = exept.Message;
+            };
         }
 
         private void Task_Gen_Load(object sender, EventArgs e)

@@ -35,6 +35,7 @@
             this.corrSqlBox = new System.Windows.Forms.RichTextBox();
             this.Create = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.StatusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -109,11 +110,21 @@
             this.label3.Size = new System.Drawing.Size(0, 15);
             this.label3.TabIndex = 6;
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Location = new System.Drawing.Point(527, 32);
+            this.StatusLabel.MaximumSize = new System.Drawing.Size(150, 300);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 7;
+            // 
             // Task_Gen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 386);
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.Attach);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Create);
@@ -142,6 +153,7 @@
         private System.Windows.Forms.RichTextBox corrSqlBox;
         private System.Windows.Forms.Button Create;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label StatusLabel;
     }
 }
 
