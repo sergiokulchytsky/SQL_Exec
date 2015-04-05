@@ -123,7 +123,7 @@ namespace Task_Generation
                 }
                 else
                 {
-                    if (String.IsNullOrWhiteSpace(label3.Text))
+                    if (String.IsNullOrWhiteSpace(fileStatus.Text))
                     {
                         ErdStatusLabel.ForeColor = Color.Red;
                         ErdStatusLabel.Text = "ERD must be added!";
