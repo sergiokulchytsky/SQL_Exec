@@ -8,7 +8,10 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Configuration;
+using System.IO;
+using Newtonsoft.Json;
 using DataLib;
+using Hashing;
 
 namespace SQLDev
 {
@@ -48,7 +51,37 @@ namespace SQLDev
                 StatusLabel.Text = exept.Message;
               
             }
-            
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"D:\task.json"))
+                {
+                    String contents = sr.ReadToEnd();
+                    var listTask = JsonConvert.DeserializeObject<List<TaskControl>>(contents);
+                    var corrTask = listTask[0];
+                    String correctHash = corrTask.correctSQL;
+                    DB db = new DB();
+                    HashSum currHS = new HashSum(db.Read(querySqlBox.Text));
+                    String currentHash = currHS.GetHashString();
+
+                    if (currentHash==correctHash)
+                    {
+                        ResultLabel.ForeColor = Color.Green;
+                        ResultLabel.Text = "Test passed!";
+                    }
+                    else
+                    {
+                        ResultLabel.ForeColor = Color.Red;
+                        ResultLabel.Text = "Test failed!";
+                    }
+                    
+                };
+            }
+            catch (Exception exept)
+            {
+               ResultLabel.ForeColor = Color.Red;
+               ResultLabel.Text = exept.Message;
+
+            }
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)

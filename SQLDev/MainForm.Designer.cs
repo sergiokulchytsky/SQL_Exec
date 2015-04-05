@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TaskButton = new System.Windows.Forms.Button();
+            this.ResultLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             this.StatusLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.StatusLabel.Location = new System.Drawing.Point(531, 92);
-            this.StatusLabel.MaximumSize = new System.Drawing.Size(225, 90);
+            this.StatusLabel.MaximumSize = new System.Drawing.Size(225, 60);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 15);
             this.StatusLabel.TabIndex = 5;
@@ -112,11 +113,20 @@
             this.TaskButton.UseVisualStyleBackColor = true;
             this.TaskButton.Click += new System.EventHandler(this.TaskButton_Click);
             // 
+            // ResultLabel
+            // 
+            this.ResultLabel.Location = new System.Drawing.Point(551, 152);
+            this.ResultLabel.Name = "ResultLabel";
+            this.ResultLabel.Size = new System.Drawing.Size(180, 29);
+            this.ResultLabel.TabIndex = 9;
+            this.ResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 418);
+            this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.TaskButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -146,6 +156,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button TaskButton;
+        private System.Windows.Forms.Label ResultLabel;
     }
 }
 
