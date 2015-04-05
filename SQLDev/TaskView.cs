@@ -32,6 +32,7 @@ namespace SQLDev
                     DescLabel.Text = currTask.description;
                     ERDpictureBox.ImageLocation = currTask.imgPath;
 
+
                 }
             }
             catch (Exception exept)
