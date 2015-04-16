@@ -11,7 +11,7 @@ namespace DataLib
 {
     public class DB
     {
-        SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["NicoConnection"].ConnectionString);
+        SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["SerConnection"].ConnectionString);
         SqlCommand comm = new SqlCommand();
         public DataTable Read(String SQL)
         {

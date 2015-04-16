@@ -38,39 +38,40 @@
             // Static_label1
             // 
             this.Static_label1.AutoSize = true;
-            this.Static_label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Static_label1.Location = new System.Drawing.Point(693, 9);
+            this.Static_label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Static_label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Static_label1.Location = new System.Drawing.Point(18, 9);
             this.Static_label1.Name = "Static_label1";
-            this.Static_label1.Size = new System.Drawing.Size(180, 22);
+            this.Static_label1.Size = new System.Drawing.Size(162, 19);
             this.Static_label1.TabIndex = 0;
             this.Static_label1.Text = "Task description:";
             // 
             // DescLabel
             // 
             this.DescLabel.AutoSize = true;
-            this.DescLabel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DescLabel.Location = new System.Drawing.Point(693, 46);
+            this.DescLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DescLabel.Location = new System.Drawing.Point(12, 31);
             this.DescLabel.MaximumSize = new System.Drawing.Size(500, 0);
             this.DescLabel.Name = "DescLabel";
-            this.DescLabel.Size = new System.Drawing.Size(0, 22);
+            this.DescLabel.Size = new System.Drawing.Size(0, 19);
             this.DescLabel.TabIndex = 1;
             // 
             // Static_label2
             // 
             this.Static_label2.AutoSize = true;
-            this.Static_label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Static_label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Static_label2.Location = new System.Drawing.Point(8, 9);
+            this.Static_label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Static_label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Static_label2.Location = new System.Drawing.Point(18, 123);
             this.Static_label2.Name = "Static_label2";
-            this.Static_label2.Size = new System.Drawing.Size(50, 22);
+            this.Static_label2.Size = new System.Drawing.Size(45, 19);
             this.Static_label2.TabIndex = 2;
             this.Static_label2.Text = "ERD:";
             // 
             // ERDpictureBox
             // 
-            this.ERDpictureBox.Location = new System.Drawing.Point(12, 34);
+            this.ERDpictureBox.Location = new System.Drawing.Point(12, 145);
             this.ERDpictureBox.Name = "ERDpictureBox";
-            this.ERDpictureBox.Size = new System.Drawing.Size(659, 416);
+            this.ERDpictureBox.Size = new System.Drawing.Size(659, 374);
             this.ERDpictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ERDpictureBox.TabIndex = 3;
             this.ERDpictureBox.TabStop = false;
@@ -79,7 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 462);
+            this.ClientSize = new System.Drawing.Size(684, 531);
             this.Controls.Add(this.ERDpictureBox);
             this.Controls.Add(this.Static_label2);
             this.Controls.Add(this.DescLabel);

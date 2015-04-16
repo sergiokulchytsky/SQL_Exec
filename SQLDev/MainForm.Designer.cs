@@ -126,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 418);
+            this.ClientSize = new System.Drawing.Size(754, 421);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.TaskButton);
             this.Controls.Add(this.label2);
