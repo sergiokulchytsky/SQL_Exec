@@ -30,7 +30,8 @@
         {
             this.AddTaskBtn = new System.Windows.Forms.Button();
             this.TaskList = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddTaskBtn
@@ -46,29 +47,43 @@
             // 
             // TaskList
             // 
+            this.TaskList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TaskList.FormattingEnabled = true;
+            this.TaskList.ItemHeight = 15;
             this.TaskList.Location = new System.Drawing.Point(73, 79);
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(275, 212);
+            this.TaskList.Size = new System.Drawing.Size(275, 199);
             this.TaskList.TabIndex = 1;
             // 
-            // button1
+            // DeleteBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(354, 115);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Delete task";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.DeleteBtn.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteBtn.Location = new System.Drawing.Point(354, 115);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(125, 30);
+            this.DeleteBtn.TabIndex = 2;
+            this.DeleteBtn.Text = "Delete task";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RefreshBtn.Location = new System.Drawing.Point(354, 151);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(125, 30);
+            this.RefreshBtn.TabIndex = 3;
+            this.RefreshBtn.Text = "Refresh";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 386);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.RefreshBtn);
+            this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.TaskList);
             this.Controls.Add(this.AddTaskBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -83,6 +98,7 @@
 
         private System.Windows.Forms.Button AddTaskBtn;
         private System.Windows.Forms.ListBox TaskList;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Button RefreshBtn;
     }
 }

@@ -71,5 +71,27 @@ namespace Task_Generation
                 System.IO.File.WriteAllText(@"D:\task.json", jstr);
             }
         }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TaskList.Items.Clear();
+            try
+            {
+                using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["DefaultTask"].ConnectionString))
+                {
+                    String line = sr.ReadToEnd();
+                    var listTC = JsonConvert.DeserializeObject<List<TaskControl>>(line);
+                    foreach (var item in listTC)
+                    {
+                        TaskList.Items.Add(item.description);
+                    }
+
+                }
+            }
+            catch (Exception exept)
+            {
+                MessageBox.Show(exept.Message);
+            };
+        }
     }
 }
