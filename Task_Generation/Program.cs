@@ -16,7 +16,7 @@ namespace Task_Generation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Task_Gen());
+            Application.Run(new AdminMainForm());
         }
     }
 }

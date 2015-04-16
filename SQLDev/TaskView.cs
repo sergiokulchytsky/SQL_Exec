@@ -32,8 +32,6 @@ namespace SQLDev
                     DescLabel.Text = currTask.description;
                     ERDpictureBox.Image = new Bitmap(currTask.imgPath);
                     ERDpictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-
-
                 }
             }
             catch (Exception exept)

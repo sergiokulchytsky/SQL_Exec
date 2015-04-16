@@ -184,6 +184,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "Task_Gen";
             this.Text = "Task_Generation";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Task_Gen_FormClosing);
             this.Load += new System.EventHandler(this.Task_Gen_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.ResumeLayout(false);

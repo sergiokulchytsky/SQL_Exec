@@ -123,8 +123,6 @@ namespace Task_Generation
             SqlStatusLabel.Text = "";
             List<TaskControl> task = new List<TaskControl>();
             TaskControl t = new TaskControl();
-            t.description = descriptionBox.Text;
-            t.imgPath = fileStatus.Text;
             DB db = new DB();
             try
             {
@@ -149,8 +147,22 @@ namespace Task_Generation
                         }
                         else
                         {
+                            using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["DefaultTask"].ConnectionString))
+                            {
+                                String line = sr.ReadToEnd();
+                                var listTC = JsonConvert.DeserializeObject<List<TaskControl>>(line);
+                                foreach (var item in listTC)
+                                {
+                                    task.Add(item);
+                                }
+
+                            }
+               
                             HashSum hash = new HashSum(db.Read(corrSqlBox.Text));
+                            t.description = descriptionBox.Text;
+                            t.imgPath = fileStatus.Text;
                             t.correctSQL = hash.GetHashString();
+
                             task.Add(t);
                             string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
                             System.IO.File.WriteAllText(@"D:\task.json", jstr);
@@ -170,6 +182,11 @@ namespace Task_Generation
         private void Task_Gen_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Task_Gen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
     }
 

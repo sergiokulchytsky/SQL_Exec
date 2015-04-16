@@ -8,8 +8,8 @@ namespace DataLib
 {
     public class TaskControl
     {
-        public string description;
-        public string imgPath;
-        public string correctSQL;
+        public string description { get; set; }
+        public string imgPath { get; set; }
+        public string correctSQL { get; set; }
     }
 }
