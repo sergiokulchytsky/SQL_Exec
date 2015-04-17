@@ -25,7 +25,7 @@ namespace SQLDev
                 using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Users"].ConnectionString))
                 {
                     String line = sr.ReadToEnd();
-                    var listTC = JsonConvert.DeserializeObject<List<UsersControl>>(line);
+                    var listTC = JsonConvert.DeserializeObject<List<StudentControl>>(line);
                     foreach (var item in listTC)
                     {
                         StudCombo.Items.Add(item.name);

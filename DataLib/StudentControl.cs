@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLib
 {
-    public class UsersControl
+    public class StudentControl
     {
         public string name { get; set; }
     }
