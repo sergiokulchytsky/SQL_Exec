@@ -22,13 +22,13 @@ namespace SQLDev
             InitializeComponent();
             try
             {
-                using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Users"].ConnectionString))
+                using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Students"].ConnectionString))
                 {
                     String line = sr.ReadToEnd();
-                    var listTC = JsonConvert.DeserializeObject<List<StudentControl>>(line);
-                    foreach (var item in listTC)
+                    var groupList = JsonConvert.DeserializeObject<List<GroupControl>>(line);
+                    foreach (var group in groupList)
                     {
-                        StudCombo.Items.Add(item.name);
+                        GroupCombo.Items.Add(group.groupName);
                     }
 
                 }
@@ -41,8 +41,76 @@ namespace SQLDev
 
         private void LogInBtn_Click(object sender, EventArgs e)
         {
-            TaskMenu menuForm = new TaskMenu();
-            menuForm.Show();
+            if (String.IsNullOrWhiteSpace(GroupCombo.Text))
+            {
+                GroupStat.ForeColor = Color.Red;
+                GroupStat.Text = "Choose group!";
+            }
+            else
+            {
+                if (String.IsNullOrWhiteSpace(StudCombo.Text))
+                {
+                    StudStat.ForeColor = Color.Red;
+                    StudStat.Text = "Choose student!";
+                }
+                else
+                {
+                    TaskMenu menuForm = new TaskMenu();
+                    menuForm.Show();
+                }
+            }
+        }
+
+        private void GroupCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GroupStat.Text = "";
+            if (GroupCombo.SelectedItem.ToString() == "ПЗС-31")
+            {
+                StudCombo.Items.Clear();
+                try
+                {
+                    using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Students"].ConnectionString))
+                    {
+                        String line = sr.ReadToEnd();
+                        List<GroupControl> groupList = JsonConvert.DeserializeObject<List<GroupControl>>(line);
+                        foreach (var stud in groupList[GroupCombo.SelectedIndex].students)
+                        {
+                            StudCombo.Items.Add(stud.name);
+                        }
+
+                    }
+                }
+                catch (Exception exept)
+                {
+                    MessageBox.Show(exept.Message);
+                };
+            }
+            else if (GroupCombo.SelectedItem.ToString() == "ПЗС-32")
+            {
+                StudCombo.Items.Clear();
+                try
+                {
+                    using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Students"].ConnectionString))
+                    {
+                        String line = sr.ReadToEnd();
+                        List<GroupControl> groupList = JsonConvert.DeserializeObject<List<GroupControl>>(line);
+                        foreach (var stud in groupList[GroupCombo.SelectedIndex].students)
+                        {
+                            StudCombo.Items.Add(stud.name);
+                        }
+
+                    }
+                }
+                catch (Exception exept)
+                {
+                    MessageBox.Show(exept.Message);
+                };
+            }
+        }
+
+        private void StudCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StudStat.Text = "";
         }
     }
 }

@@ -9,6 +9,6 @@ namespace DataLib
     public class GroupControl
     {
         public string groupName;
-        List<StudentControl> students;
+        public List<StudentControl> students;
     }
 }
