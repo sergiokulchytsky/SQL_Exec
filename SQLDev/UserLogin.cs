@@ -55,10 +55,17 @@ namespace SQLDev
                 }
                 else
                 {
-                    TaskMenu menuForm = new TaskMenu();
+                    TaskMenu menuForm = new TaskMenu(StudCombo.SelectedItem.ToString());
+                    menuForm.FormClosed += new FormClosedEventHandler(menuForm_FormClosed);
                     menuForm.Show();
+                    this.Hide();
                 }
             }
+        }
+
+        private void menuForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
 
         private void GroupCombo_SelectedIndexChanged(object sender, EventArgs e)

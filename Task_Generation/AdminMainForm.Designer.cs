@@ -92,6 +92,7 @@
             this.Controls.Add(this.AddTaskBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AdminMainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminMainForm";
             this.Load += new System.EventHandler(this.AdminMainForm_Load);
             this.ResumeLayout(false);

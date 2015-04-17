@@ -86,6 +86,7 @@
             this.Controls.Add(this.DescLabel);
             this.Controls.Add(this.Static_label1);
             this.Name = "TaskView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TaskView";
             this.Load += new System.EventHandler(this.TaskView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ERDpictureBox)).EndInit();

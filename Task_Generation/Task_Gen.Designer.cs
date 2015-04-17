@@ -183,6 +183,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "Task_Gen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task_Generation";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Task_Gen_FormClosing);
             this.Load += new System.EventHandler(this.Task_Gen_Load);
