@@ -17,10 +17,11 @@ namespace SQLDev
 {
     public partial class MainForm : Form
     {
+        private int taskNum;
 
-
-        public MainForm()
+        public MainForm(int taskNum)
         {
+            this.taskNum = taskNum;
             InitializeComponent();
             querySqlBox.Select();
         }
@@ -161,7 +162,7 @@ namespace SQLDev
 
         private void TaskButton_Click(object sender, EventArgs e)
         {
-            TaskView TaskForm = new TaskView();
+            TaskView TaskForm = new TaskView(taskNum);
             TaskForm.Show();
         }
     }

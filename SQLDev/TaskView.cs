@@ -19,7 +19,7 @@ namespace SQLDev
 {
     public partial class TaskView : Form
     {
-        public TaskView()
+        public TaskView(int taskNum)
         {
             InitializeComponent();
             try
@@ -28,7 +28,7 @@ namespace SQLDev
                 {
                     String line = sr.ReadToEnd();
                     var listTC = JsonConvert.DeserializeObject<List<TaskControl>>(line);
-                    var currTask = listTC[0];
+                    var currTask = listTC[taskNum];
                     DescLabel.Text = currTask.description;
                     ERDpictureBox.Image = new Bitmap(currTask.imgPath);
                     ERDpictureBox.SizeMode = PictureBoxSizeMode.Zoom;
