@@ -16,6 +16,9 @@ namespace SQLDev
 {
     public partial class TaskMenu : Form
     {
+        private Boolean[] Marks;
+        private Int32 TaskCount = 0;
+        Button[] buttonArray;
         public TaskMenu(string student)
         {
             InitializeComponent();
@@ -24,14 +27,20 @@ namespace SQLDev
 
         private void TaskMenu_Load(object sender, EventArgs e)
         {
-            CreatingNewButtons(getTaskCount());
+            this.TaskCount = getTaskCount();
+            CreatingNewButtons(this.TaskCount);
+            this.Marks = new Boolean[this.TaskCount];
+            for (Int32 i = 0; i < Marks.Length; i++)
+            {
+                this.Marks[i] = false;
+            }
         }
 
         private void CreatingNewButtons(int taskCount)
         {
             int horizotal = 13;
             int vertical = 40;
-            Button[] buttonArray = new Button[taskCount];
+            buttonArray = new Button[taskCount];
 
             for (int i = 0; i < buttonArray.Length; i++)
             {
@@ -77,8 +86,36 @@ namespace SQLDev
             string[] words = (((Button)sender).Name).Split('_');
 
             MainForm taskForm = new MainForm(Convert.ToInt32(words[1]));
-            taskForm.Text += (Convert.ToInt32(words[1])+1).ToString(); 
-            taskForm.ShowDialog();
+            taskForm.Text += (Convert.ToInt32(words[1])+1).ToString();
+            switch (taskForm.ShowDialog())
+            {
+                case DialogResult.Abort:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                case DialogResult.Ignore:
+                    break;
+                case DialogResult.No:
+                    {
+                        this.buttonArray[Convert.ToInt32(words[1])].BackColor = System.Drawing.Color.Salmon;
+                    }
+                    break;
+                case DialogResult.None:
+                    break;
+                case DialogResult.OK:
+                    {
+                        this.Marks[Convert.ToInt32(words[1])] = true;
+                        this.StudentMark.Text = "Mark: " + GetStudentMark().ToString();
+                        this.buttonArray[Convert.ToInt32(words[1])].BackColor = System.Drawing.Color.LightGreen;
+                    }
+                    break;
+                case DialogResult.Retry:
+                    break;
+                case DialogResult.Yes:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void LogOutBtn_Click(object sender, EventArgs e)
@@ -102,6 +139,25 @@ namespace SQLDev
         private void TaskMenu_SizeChanged(object sender, EventArgs e)
         {
 
+        }
+        private Int32 CountCorrectTasks()
+        {
+            Int32 counter = 0;
+            for (Int32 i = 0; i < this.Marks.Length; i++)
+            {
+                if (this.Marks[i])
+                {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+        private Int32 GetStudentMark()
+        {
+            Double correct = CountCorrectTasks();
+            Double result = correct / this.TaskCount;
+            result *= 100;
+            return Convert.ToInt32(result);
         }
     }
 }

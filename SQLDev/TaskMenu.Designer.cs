@@ -31,6 +31,7 @@
             this.EndBtn = new System.Windows.Forms.Button();
             this.LogOutBtn = new System.Windows.Forms.Button();
             this.StudLab = new System.Windows.Forms.Label();
+            this.StudentMark = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // EndBtn
@@ -66,11 +67,22 @@
             this.StudLab.TabIndex = 12;
             this.StudLab.Text = "Hello: ";
             // 
+            // StudentMark
+            // 
+            this.StudentMark.AutoSize = true;
+            this.StudentMark.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StudentMark.Location = new System.Drawing.Point(362, 13);
+            this.StudentMark.Name = "StudentMark";
+            this.StudentMark.Size = new System.Drawing.Size(56, 15);
+            this.StudentMark.TabIndex = 13;
+            this.StudentMark.Text = "Mark: 0";
+            // 
             // TaskMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 421);
+            this.Controls.Add(this.StudentMark);
             this.Controls.Add(this.StudLab);
             this.Controls.Add(this.LogOutBtn);
             this.Controls.Add(this.EndBtn);
@@ -90,5 +102,6 @@
         private System.Windows.Forms.Button EndBtn;
         private System.Windows.Forms.Button LogOutBtn;
         private System.Windows.Forms.Label StudLab;
+        private System.Windows.Forms.Label StudentMark;
     }
 }

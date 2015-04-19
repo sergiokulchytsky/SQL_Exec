@@ -18,7 +18,7 @@ namespace SQLDev
     public partial class MainForm : Form
     {
         private int taskNum;
-
+        Boolean result = false;
         public MainForm(int taskNum)
         {
             this.taskNum = taskNum;
@@ -38,10 +38,9 @@ namespace SQLDev
                 else
                 {
                    
-                            DB db = new DB();
-                            dataGridView.DataSource = db.Read(querySqlBox.Text);
+                    DB db = new DB();
+                    dataGridView.DataSource = db.Read(querySqlBox.Text);
                  
-                    
                     StatusLabel.ForeColor = Color.Green;
                     StatusLabel.Text = "Success!";
                 }
@@ -68,6 +67,8 @@ namespace SQLDev
                     {
                         ResultLabel.ForeColor = Color.Green;
                         ResultLabel.Text = "Test passed!";
+                        this.result = true;
+                        
                     }
                     else
                     {
@@ -164,6 +165,14 @@ namespace SQLDev
         {
             TaskView TaskForm = new TaskView(taskNum);
             TaskForm.Show();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           if(this.result)
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+           else
+               this.DialogResult = System.Windows.Forms.DialogResult.No;
         }
     }
 }
