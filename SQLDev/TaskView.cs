@@ -19,6 +19,7 @@ namespace SQLDev
 {
     public partial class TaskView : Form
     {
+
         public TaskView(int taskNum)
         {
             InitializeComponent();

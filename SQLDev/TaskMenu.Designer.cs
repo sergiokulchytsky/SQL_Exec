@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button11 = new System.Windows.Forms.Button();
+            this.EndBtn = new System.Windows.Forms.Button();
             this.LogOutBtn = new System.Windows.Forms.Button();
             this.StudLab = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button11
+            // EndBtn
             // 
-            this.button11.Location = new System.Drawing.Point(620, 372);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(122, 37);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.EndBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.EndBtn.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EndBtn.Location = new System.Drawing.Point(620, 372);
+            this.EndBtn.Name = "EndBtn";
+            this.EndBtn.Size = new System.Drawing.Size(122, 37);
+            this.EndBtn.TabIndex = 10;
+            this.EndBtn.Text = "Complete";
+            this.EndBtn.UseVisualStyleBackColor = true;
             // 
             // LogOutBtn
             // 
+            this.LogOutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LogOutBtn.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LogOutBtn.Location = new System.Drawing.Point(648, 12);
             this.LogOutBtn.Name = "LogOutBtn";
@@ -70,12 +73,13 @@
             this.ClientSize = new System.Drawing.Size(754, 421);
             this.Controls.Add(this.StudLab);
             this.Controls.Add(this.LogOutBtn);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.EndBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TaskMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TaskMenu";
             this.Load += new System.EventHandler(this.TaskMenu_Load);
+            this.SizeChanged += new System.EventHandler(this.TaskMenu_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,7 +87,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button EndBtn;
         private System.Windows.Forms.Button LogOutBtn;
         private System.Windows.Forms.Label StudLab;
     }

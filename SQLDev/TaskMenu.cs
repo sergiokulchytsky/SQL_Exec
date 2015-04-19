@@ -29,8 +29,8 @@ namespace SQLDev
 
         private void CreatingNewButtons(int taskCount)
         {
-            int horizotal = 30;
-            int vertical = 30;
+            int horizotal = 13;
+            int vertical = 40;
             Button[] buttonArray = new Button[taskCount];
 
             for (int i = 0; i < buttonArray.Length; i++)
@@ -43,7 +43,7 @@ namespace SQLDev
                 buttonArray[i].Click += TaskBtn_Click;
                 if ((i+1)%5 == 0)
                 {
-                    horizotal = 30;
+                    horizotal = 13;
                     vertical = vertical + 70;
                 }
                 else
@@ -77,8 +77,8 @@ namespace SQLDev
             string[] words = (((Button)sender).Name).Split('_');
 
             MainForm taskForm = new MainForm(Convert.ToInt32(words[1]));
-            taskForm.Show();
-            MessageBox.Show(words[1]);
+            taskForm.Text += (Convert.ToInt32(words[1])+1).ToString(); 
+            taskForm.ShowDialog();
         }
 
         private void LogOutBtn_Click(object sender, EventArgs e)
@@ -97,6 +97,11 @@ namespace SQLDev
         private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        private void TaskMenu_SizeChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
