@@ -39,7 +39,7 @@ namespace SQLDev
         private void CreatingNewButtons(int taskCount)
         {
             int horizotal = 13;
-            int vertical = 40;
+            int vertical = 65;
             buttonArray = new Button[taskCount];
 
             for (int i = 0; i < buttonArray.Length; i++)
