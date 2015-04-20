@@ -165,7 +165,7 @@ namespace Task_Generation
 
                             task.Add(t);
                             string jstr = JsonConvert.SerializeObject(task, Formatting.Indented);
-                            System.IO.File.WriteAllText(@"D:\task.json", jstr);
+                            System.IO.File.WriteAllText(ConfigurationManager.ConnectionStrings["DefaultTask"].ConnectionString, jstr);
                             SqlStatusLabel.ForeColor = Color.Green;
                             SqlStatusLabel.Text = "Success!";
                         }

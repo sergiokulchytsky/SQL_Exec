@@ -57,7 +57,7 @@ namespace SQLDev
                 {
                     String contents = sr.ReadToEnd();
                     var listTask = JsonConvert.DeserializeObject<List<TaskControl>>(contents);
-                    var corrTask = listTask[0];
+                    var corrTask = listTask[taskNum];
                     String correctHash = corrTask.correctSQL;
                     DB db = new DB();
                     HashSum currHS = new HashSum(db.Read(querySqlBox.Text));
