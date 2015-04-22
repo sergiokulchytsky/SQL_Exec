@@ -89,6 +89,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TaskView";
             this.Load += new System.EventHandler(this.TaskView_Load);
+            this.SizeChanged += new System.EventHandler(this.TaskView_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.ERDpictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

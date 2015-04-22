@@ -15,24 +15,24 @@ namespace DataLib
         SqlCommand comm = new SqlCommand();
         public DataTable Read(String SQL)
         {
-             myConnection.Open();
-                    comm.Connection = myConnection;
-                    comm.CommandText = SQL;
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            DataTable dt = new DataTable();
-                            dt.Load(reader);
-                            myConnection.Close();
-                            return dt;
-                        }
-                        else
-                        {
-                            throw new Exception("NOT SELECT");
-                        }
-                    }
-                   
+            myConnection.Open();
+            comm.Connection = myConnection;
+            comm.CommandText = SQL;
+            using (SqlDataReader reader = comm.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    myConnection.Close();
+                    return dt;
+                }
+                else
+                {
+                    throw new Exception("NOT SELECT");
+                }
+            }
+
         }
     }
 
