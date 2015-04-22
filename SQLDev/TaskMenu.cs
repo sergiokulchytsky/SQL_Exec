@@ -97,7 +97,8 @@ namespace SQLDev
                     break;
                 case DialogResult.No:
                     {
-                        this.buttonArray[Convert.ToInt32(words[1])].BackColor = System.Drawing.Color.Salmon;
+                        if (!this.Marks[Convert.ToInt32(words[1])])
+                            this.buttonArray[Convert.ToInt32(words[1])].BackColor = System.Drawing.Color.Salmon;
                     }
                     break;
                 case DialogResult.None:

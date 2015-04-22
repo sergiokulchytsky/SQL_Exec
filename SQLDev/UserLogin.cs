@@ -55,7 +55,7 @@ namespace SQLDev
                 }
                 else
                 {
-                    TaskMenu menuForm = new TaskMenu(StudCombo.SelectedItem.ToString());
+                    TaskMenu menuForm = new TaskMenu(StudCombo.SelectedItem.ToString() + ", " + GroupCombo.SelectedItem.ToString());
                     menuForm.FormClosed += new FormClosedEventHandler(menuForm_FormClosed);
                     menuForm.Show();
                     this.Hide();
@@ -71,47 +71,22 @@ namespace SQLDev
         private void GroupCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             GroupStat.Text = "";
-            if (GroupCombo.SelectedItem.ToString() == "ПЗС-31")
+            StudCombo.Items.Clear();
+            try
             {
-                StudCombo.Items.Clear();
-                try
+                using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Students"].ConnectionString))
                 {
-                    using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Students"].ConnectionString))
+                    String line = sr.ReadToEnd();
+                    List<GroupControl> groupList = JsonConvert.DeserializeObject<List<GroupControl>>(line);
+                    foreach (var stud in groupList[GroupCombo.SelectedIndex].students)
                     {
-                        String line = sr.ReadToEnd();
-                        List<GroupControl> groupList = JsonConvert.DeserializeObject<List<GroupControl>>(line);
-                        foreach (var stud in groupList[GroupCombo.SelectedIndex].students)
-                        {
-                            StudCombo.Items.Add(stud.name);
-                        }
-
+                        StudCombo.Items.Add(stud.name);
                     }
                 }
-                catch (Exception exept)
-                {
-                    MessageBox.Show(exept.Message);
-                };
             }
-            else if (GroupCombo.SelectedItem.ToString() == "ПЗС-32")
+            catch (Exception exept)
             {
-                StudCombo.Items.Clear();
-                try
-                {
-                    using (StreamReader sr = new StreamReader(ConfigurationManager.ConnectionStrings["Students"].ConnectionString))
-                    {
-                        String line = sr.ReadToEnd();
-                        List<GroupControl> groupList = JsonConvert.DeserializeObject<List<GroupControl>>(line);
-                        foreach (var stud in groupList[GroupCombo.SelectedIndex].students)
-                        {
-                            StudCombo.Items.Add(stud.name);
-                        }
-
-                    }
-                }
-                catch (Exception exept)
-                {
-                    MessageBox.Show(exept.Message);
-                };
+                MessageBox.Show(exept.Message);
             }
         }
 
