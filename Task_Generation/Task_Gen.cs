@@ -28,10 +28,10 @@ namespace Task_Generation
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-            string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|BY|UPDATE|DELETE|INSERT|INTO|CREATE|TABLE|DROP|INDEX|DATABASE|ALTER|VALUES|NOT|NULL|CONSTRAINT|IDENTITY|USER)\b";
+            string keywordsUp = @"\b(SELECT|FROM|WHERE|BETWEEN|LIKE|ORDER|BY|UPDATE|DELETE|INSERT|INTO|CREATE|TABLE|DROP|INDEX|DATABASE|ALTER|VALUES|NOT|NULL|CONSTRAINT|IDENTITY|USER|JOIN|GROUP)\b";
             MatchCollection keywordUpMatches = Regex.Matches(corrSqlBox.Text, keywordsUp);
 
-            string keywordsDown = @"\b(select|from|where|between|like|order|by|update|delete|insert|into|create|table|drop|index|database|alter|values|not|null|constraint|identity|user)\b";
+            string keywordsDown = @"\b(select|from|where|between|like|order|by|update|delete|insert|into|create|table|drop|index|database|alter|values|not|null|constraint|identity|user|join|group)\b";
             MatchCollection keywordDownMatches = Regex.Matches(corrSqlBox.Text, keywordsDown);
 
             int originalIndex = corrSqlBox.SelectionStart;

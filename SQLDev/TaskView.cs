@@ -48,14 +48,7 @@ namespace SQLDev
 
         private void TaskView_SizeChanged(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                ERDpictureBox.Size = new Size(1300, 550);
-            }
-            else
-            {
-                ERDpictureBox.Size = new Size(659, 374);
-            }
+          
         }
     }
 }
